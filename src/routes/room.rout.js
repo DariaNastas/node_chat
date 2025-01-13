@@ -4,16 +4,24 @@ import { catchError } from '../utils/catchError.js';
 
 const router = express.Router();
 
-router.get('/room/', catchError(roomController.get));
+router.get('/room/', catchError(roomController.getRooms));
 
-router.get('/room/:id', catchError(roomController.getOne));
+router.get('/room/:id', catchError(roomController.getRoomById));
 
-router.post('/room', express.json(), catchError(roomController.create));
+router.post('/room', express.json(), catchError(roomController.createRoom));
 
-router.patch('/room/:id', express.json(), catchError(roomController.update));
+router.patch(
+  '/room/:id',
+  express.json(),
+  catchError(roomController.updateRoom),
+);
 
-router.post('/room/:id/join', express.json(), catchError(roomController.join));
+router.post(
+  '/room/:id/join',
+  express.json(),
+  catchError(roomController.joinRoom),
+);
 
-router.delete('/room/:id', catchError(roomController.remove));
+router.delete('/room/:id', catchError(roomController.deleteRoom));
 
 export { router };

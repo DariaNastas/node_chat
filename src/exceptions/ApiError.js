@@ -17,20 +17,20 @@ export class ApiError extends Error {
     return new ApiError(400, message, errors);
   }
 
-  static Unauthorized(message = 'User is not authorized') {
-    return new ApiError(401, message);
+  static Unauthorized(message = 'User is not authorized', errors = {}) {
+    return new ApiError(401, message, errors);
   }
 
-  static Forbidden(message = 'Access forbidden') {
-    return new ApiError(403, message);
+  static Forbidden(message = 'Access forbidden', errors = {}) {
+    return new ApiError(403, message, errors);
   }
 
-  static NotFound(message = 'Not found') {
-    return new ApiError(404, message);
+  static NotFound(message = 'Not found', errors = {}) {
+    return new ApiError(404, message, errors);
   }
 
-  static Conflict(message = 'Conflict occurred') {
-    return new ApiError(409, message);
+  static Conflict(message = 'Conflict occurred', errors = {}) {
+    return new ApiError(409, message, errors);
   }
 
   static UnprocessableEntity(errors = {}) {

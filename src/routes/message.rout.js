@@ -1,5 +1,5 @@
 import express from 'express';
-import * as messageController from './../controllers/messageController.js';
+import * as messageController from '../controllers/message.controller.js';
 import { catchError } from '../utils/catchError.js';
 
 const router = express.Router();

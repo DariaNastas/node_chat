@@ -37,7 +37,7 @@ models.forEach(({ init, modelExport }) => {
 
   db[model.name] = model;
 
-  if (modelExport) {
+  if (modelExport && modelExport.name) {
     db[modelExport.name] = modelExport;
   }
 });

@@ -55,7 +55,7 @@ async function join(id, userId) {
 
   if (!room || !user) {
     throw ApiError.UnprocessableEntity({
-      error: 'Room or User does not exist',
+      error: !room ? 'Room does not exist' : 'User does not exist',
     });
   }
 

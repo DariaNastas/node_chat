@@ -28,7 +28,6 @@ function validateUuid(uuid, fieldName) {
 
 export const getUserById = async (req, res) => {
   const { id } = req.params;
-
   const errors = validateUuid(id, 'UserId');
 
   if (errors) {
@@ -51,7 +50,7 @@ export const createOrLogInUser = async (req, res) => {
     name: validateName(name),
   };
 
-  if (Object.values(errors).some(Boolean)) {
+  if (Object.values(errors).some((error) => error !== null)) {
     throw ApiError.UnprocessableEntity(errors);
   }
 

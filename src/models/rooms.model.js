@@ -3,6 +3,7 @@ import { Model } from 'sequelize';
 export class Room extends Model {
   static associate(models) {
     Room.belongsTo(models.User, { foreignKey: 'userId' });
+
     Room.hasMany(models.Message, { foreignKey: 'roomId' });
 
     Room.belongsToMany(models.User, {

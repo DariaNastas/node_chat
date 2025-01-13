@@ -50,5 +50,6 @@ export const createMessage = async (req, res) => {
   const message = await messageService.create(UserId, text, RoomId);
 
   emmiter.emit('message', message);
+
   res.status(201).send(message);
 };

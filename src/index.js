@@ -24,9 +24,9 @@ app.use(
   }),
 );
 
-app.use('/', userRouter);
-app.use('/', roomRouter);
-app.use('/', messageRouter);
+app.use('/users', userRouter);
+app.use('/rooms', roomRouter);
+app.use('/messages', messageRouter);
 
 app.use(errorMiddleware);
 
@@ -60,6 +60,7 @@ emmiter.on('message', (data) => {
 });
 
 process.on('SIGINT', () => {
+  // Close WebSocket clients during server shutdown
   wss.clients.forEach((client) => client.close());
 
   server.close(() => {

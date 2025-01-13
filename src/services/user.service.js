@@ -13,9 +13,7 @@ async function getOne(id) {
 
 async function getByName(name) {
   return User.findOne({
-    where: {
-      name: name,
-    },
+    where: { name },
   });
 }
 

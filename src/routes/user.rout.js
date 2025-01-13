@@ -5,13 +5,13 @@ import { validateUser } from '../utils/validateUser.js';
 
 const router = express.Router();
 
-router.get('/user/:id', catchError(userController.getOne));
+router.get('/user/:id', catchError(userController.getUserById));
 
 router.post(
   '/user',
   express.json(),
   validateUser,
-  catchError(userController.create),
+  catchError(userController.createOrLogInUser),
 );
 
 export { router };

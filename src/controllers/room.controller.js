@@ -41,6 +41,7 @@ export const getRoomById = async (req, res) => {
   if (!room) {
     throw ApiError.NotFound(`Room with id=${id} not found`);
   }
+
   res.send(room);
 };
 

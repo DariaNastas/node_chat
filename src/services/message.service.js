@@ -5,7 +5,7 @@ import { roomService } from './room.service.js';
 
 const getAll = (id) => {
   return Message.findAll({
-    where: { RoomId: id },
+    where: { roomId: id },
     include: User,
   });
 };
@@ -51,4 +51,5 @@ async function create(UserId, text, RoomId) {
 export const messageService = {
   create,
   getAll,
+  getOne,
 };
